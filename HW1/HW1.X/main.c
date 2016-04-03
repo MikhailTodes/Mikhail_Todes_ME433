@@ -53,11 +53,23 @@ int main() {
     // disable JTAG to get pins back
     DDPCONbits.JTAGEN = 0;
     
-    // do your TRIS and LAT commands here
+    //Setup Push button 2 for user input
+    TRISBbits.TRISB4 = 1; //Set B4 as an input pin    
+    
+    //Setup for green test LED
+    TRISAbits.TRISA4 = 0;//set A4 as output
+    LATAbits.LATA4 = 0; //Set A4 as low to begin with
     
     __builtin_enable_interrupts();
     
     while(1) {
+        
+        if (PORTBbits.RB4 == 1) {
+            LATAbits.LATA4 = 0;
+        }
+        
+        LATAbits.LATA4 = 1;
+        
 	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
 		// remember the core timer runs at half the CPU speed
     }
