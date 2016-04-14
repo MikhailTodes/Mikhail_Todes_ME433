@@ -13692,16 +13692,16 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="P+1" library="PIC32" deviceset="+5V" device=""/>
 <part name="C1" library="PIC32" deviceset="C-US" device="025-025X050" value="0.1uF"/>
 <part name="GND8" library="PIC32" deviceset="GND" device=""/>
-<part name="C2" library="PIC32" deviceset="CPOL-US" device="B45181B" value="10uF"/>
+<part name="C2" library="PIC32" deviceset="CPOL-US" device="B45181A" value="10uF"/>
 <part name="C3" library="PIC32" deviceset="C-US" device="025-025X050" value="0.1uF"/>
 <part name="GND9" library="PIC32" deviceset="GND" device=""/>
 <part name="GND10" library="PIC32" deviceset="GND" device=""/>
 <part name="+3V4" library="PIC32" deviceset="+3V3" device=""/>
 <part name="LED1" library="PIC32" deviceset="LED" device="3MM" value="red"/>
-<part name="R1" library="PIC32" deviceset="R-US_" device="0411/15" value="330"/>
+<part name="R1" library="PIC32" deviceset="R-US_" device="0207/10" value="330"/>
 <part name="GND11" library="PIC32" deviceset="GND" device=""/>
 <part name="LED2" library="PIC32" deviceset="LED" device="3MM" value="green"/>
-<part name="R2" library="PIC32" deviceset="R-US_" device="0411/15" value="330"/>
+<part name="R2" library="PIC32" deviceset="R-US_" device="0207/10" value="330"/>
 <part name="GND12" library="PIC32" deviceset="GND" device=""/>
 <part name="USER" library="PIC32" deviceset="PBUTTON" device=""/>
 <part name="RESET" library="PIC32" deviceset="PBUTTON" device=""/>
@@ -13710,17 +13710,17 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="U$1" library="PIC32" deviceset="MCP1702" device=""/>
 <part name="GND13" library="PIC32" deviceset="GND" device=""/>
 <part name="GND14" library="PIC32" deviceset="GND" device=""/>
-<part name="R3" library="PIC32" deviceset="R-US_" device="0411/15" value="10k"/>
-<part name="R4" library="PIC32" deviceset="R-US_" device="0411/15" value="10k"/>
+<part name="R3" library="PIC32" deviceset="R-US_" device="0207/10" value="10k"/>
+<part name="R4" library="PIC32" deviceset="R-US_" device="0207/10" value="10k"/>
 <part name="+3V5" library="PIC32" deviceset="+3V3" device=""/>
 <part name="+3V6" library="PIC32" deviceset="+3V3" device=""/>
 <part name="U$2" library="PIC32" deviceset="PICKIT" device=""/>
 <part name="+3V7" library="PIC32" deviceset="+3V3" device=""/>
 <part name="GND15" library="PIC32" deviceset="GND" device=""/>
-<part name="C4" library="PIC32" deviceset="CPOL-US" device="B45181B" value="10uF"/>
+<part name="C4" library="PIC32" deviceset="CPOL-US" device="B45181A" value="10uF"/>
 <part name="P+2" library="PIC32" deviceset="+5V" device=""/>
 <part name="C5" library="PIC32" deviceset="C-US" device="025-025X050" value="0.1uF"/>
-<part name="." library="PIC32" deviceset="OSCIL" device=""/>
+<part name="." library="PIC32" deviceset="OSCIL" device="" value="8MHz"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="C6" library="PIC32" deviceset="C-US" device="025-025X050" value="0.1uF"/>
 <part name="J2" library="PIC32" deviceset="M08" device=""/>
