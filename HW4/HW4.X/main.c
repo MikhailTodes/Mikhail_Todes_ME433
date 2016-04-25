@@ -35,6 +35,13 @@ int main() {
         sinwave[i] = (unsigned char)center + A * sin( 2 * 3.14 * i / (1000));
     }
     
+    // create a triangle wave
+    unsigned char triWave[1000];
+    i = 0;
+    for (i = 0; i < 1000; i++){
+        triWave[i] = (unsigned char) 255 * i /1000;
+    }
+    
     
     _CP0_SET_COUNT(0);
     while(1) {
@@ -42,6 +49,7 @@ int main() {
          if(_CP0_GET_COUNT()>24000){ 
             i++;
             setOutputVoltage(0, sinwave[i]);
+            setOutputVoltage(1, triWave[i]);
             _CP0_SET_COUNT(0);
          }
         if (i > 1000){i = 0;}
