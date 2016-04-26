@@ -1,5 +1,6 @@
 #include"PIC_setup.h"       //Setup stuff
-#include"SPI_setup.h"         //Setup the SPI comms
+#include"SPI_setup.h"       //Setup the SPI comms
+#include"i2c_setup.h"       //Setup the I2C comms
 #include <math.h>
 
 int main() {

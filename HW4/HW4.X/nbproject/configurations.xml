@@ -16,6 +16,8 @@
       <itemPath>PIC_setup.h</itemPath>
       <itemPath>SPI_setup.h</itemPath>
       <itemPath>SPI_setup.c</itemPath>
+      <itemPath>i2c_setup.h</itemPath>
+      <itemPath>i2c_setup.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
