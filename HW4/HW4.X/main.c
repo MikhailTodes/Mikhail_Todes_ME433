@@ -52,7 +52,7 @@ int main() {
             setOutputVoltage(1, triWave[i]);
             _CP0_SET_COUNT(0);
          }
-        if (i > 1000){i = 0;}
+        if (i > 999){i = 0;}
 
         
     }
