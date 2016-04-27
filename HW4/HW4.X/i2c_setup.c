@@ -6,8 +6,9 @@
 // I2C pins need pull-up resistors, 2k-10k
 
 void i2c_master_setup(void) {
-  //ANSELBbits.ANSB2 = 0;
-  //ANSELBbits.ANSB3 = 0;
+  //Change pins B2 and B3 from anologue  
+  ANSELBbits.ANSB2 = 0;
+  ANSELBbits.ANSB3 = 0;
   I2C2BRG = 53;//90;            // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2   
     
     
