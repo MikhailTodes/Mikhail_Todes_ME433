@@ -10,7 +10,7 @@ void i2c_master_setup(void) {
   ANSELBbits.ANSB2 = 0;
   ANSELBbits.ANSB3 = 0;
   
-  I2C2BRG = 52;                     // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2   
+  I2C2BRG = 53;                     // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2   
     
     
   //I2C2BRG = some number for 100kHz;            // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2 
@@ -56,18 +56,16 @@ void i2c_master_stop(void) {          // send a STOP:
 }
 
 void i2c_write(unsigned char address, unsigned char reg, 
-        unsigned char * data, char len){ 
+        unsigned char data){ 
     
     i2c_master_start(); // make the start bit
 
     i2c_master_send(address<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
 
     i2c_master_send(reg); // the register to write to
-
-    char i;
-    for (i=0; i<len; i++){
-        i2c_master_send(data[i]);
-    }
+    
+    i2c_master_send(data);
+    
     i2c_master_stop(); // make the stop bit
 }
 

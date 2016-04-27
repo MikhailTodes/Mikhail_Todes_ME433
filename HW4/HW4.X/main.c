@@ -27,16 +27,17 @@ int main() {
     
     //**********I2C COMMS SETUP**********************
     i2c_master_setup();     
-    unsigned char I2C_setup[10]; 
+    unsigned char I2C_setup; 
     
-    I2C_setup[0] = 0xF0; //Set pins 0-3 as outputs and 4-7 as inputs
-    i2c_write(PIN_EXP_ADD, 0x00, I2C_setup, 1);
+    I2C_setup = 0xF0; //Set pins 0-3 as outputs and 4-7 as inputs
+    i2c_write(PIN_EXP_ADD, 0x00, I2C_setup);
       
-    I2C_setup[0] = 0xF0; //Add pull up resistors for pins 4-7
-    i2c_write(PIN_EXP_ADD, 0x06, I2C_setup, 1);
+    //I2C_setup = 0xF0; //Add pull up resistors for pins 4-7
+    //i2c_write(PIN_EXP_ADD, 0x06, I2C_setup);
     
-    I2C_setup[0] = 0x01; //Turn on the output of pin 0
-    i2c_write(PIN_EXP_ADD, 0x09, I2C_setup, 1);
+    unsigned char data = 0b00000000;
+    data = data | (1 << 0);
+    i2c_write(PIN_EXP_ADD, 0x0A, data);
     //***********************************************
     
     
