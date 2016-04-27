@@ -3,6 +3,8 @@
 #include"i2c_setup.h"       //Setup the I2C comms
 #include <math.h>
 
+#define PIN_EXP_ADD 0b0100001 //Address of the pin expander
+
 int main() {
 
     __builtin_disable_interrupts();
@@ -23,6 +25,22 @@ int main() {
     __builtin_enable_interrupts();
     
     
+    //**********I2C COMMS SETUP**********************
+    i2c_master_setup();     
+    unsigned char I2C_setup[10]; 
+    
+    I2C_setup[0] = 0xF0; //Set pins 0-3 as outputs and 4-7 as inputs
+    i2c_write(PIN_EXP_ADD, 0x00, I2C_setup, 1);
+      
+    I2C_setup[0] = 0xF0; //Add pull up resistors for pins 4-7
+    i2c_write(PIN_EXP_ADD, 0x06, I2C_setup, 1);
+    
+    I2C_setup[0] = 0x01; //Turn on the output of pin 0
+    i2c_write(PIN_EXP_ADD, 0x09, I2C_setup, 1);
+    //***********************************************
+    
+    
+    //************SPI AND WAVES SETUP****************
     initSPI();
     unsigned char volts = 0;
     char output = 0;    
@@ -42,7 +60,7 @@ int main() {
     for (i = 0; i < 1000; i++){
         triWave[i] = (unsigned char) 255 * i /1000;
     }
-    
+    //****************************************************
     
     _CP0_SET_COUNT(0);
     while(1) {
