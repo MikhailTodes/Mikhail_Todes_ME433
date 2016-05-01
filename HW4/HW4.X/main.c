@@ -35,8 +35,8 @@ int main() {
     //I2C_setup = 0xF0; //Add pull up resistors for pins 4-7
     //i2c_write(PIN_EXP_ADD, 0x06, I2C_setup);
     
-    unsigned char data = 0b00000000;
-    data = data | (1 << 0);
+    //Start with the LED on pin 0 on
+    unsigned char data = 0b00000001;
     i2c_write(PIN_EXP_ADD, 0x0A, data);
     //***********************************************
     
@@ -73,6 +73,20 @@ int main() {
             _CP0_SET_COUNT(0);
          }
         if (i > 999){i = 0;}
+         
+        char Button =  i2c_read(PIN_EXP_ADD, 0x09);
+        if((Button>>7)&0x01 == 1) // Button is pressed
+        {
+            //Turn Off LED
+            unsigned char data = 0b00000000;
+            i2c_write(PIN_EXP_ADD, 0x0A, data);
+        }
+        else
+        {   
+            //Turn on LED
+            unsigned char data = 0b00000001;
+            i2c_write(PIN_EXP_ADD, 0x0A, data);
+        }
 
         
     }
