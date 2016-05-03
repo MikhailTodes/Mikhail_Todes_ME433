@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c i2c_setup.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c i2c_setup.c init_PWM.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_setup.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/i2c_setup.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/init_PWM.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/i2c_setup.o.d ${OBJECTDIR}/init_PWM.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_setup.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/init_PWM.o
 
 # Source Files
-SOURCEFILES=main.c i2c_setup.c
+SOURCEFILES=main.c i2c_setup.c init_PWM.c
 
 
 CFLAGS=
@@ -106,6 +106,12 @@ ${OBJECTDIR}/i2c_setup.o: i2c_setup.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/i2c_setup.o 
 	@${FIXDEPS} "${OBJECTDIR}/i2c_setup.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/i2c_setup.o.d" -o ${OBJECTDIR}/i2c_setup.o i2c_setup.c     
 	
+${OBJECTDIR}/init_PWM.o: init_PWM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/init_PWM.o.d 
+	@${RM} ${OBJECTDIR}/init_PWM.o 
+	@${FIXDEPS} "${OBJECTDIR}/init_PWM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/init_PWM.o.d" -o ${OBJECTDIR}/init_PWM.o init_PWM.c     
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -118,6 +124,12 @@ ${OBJECTDIR}/i2c_setup.o: i2c_setup.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/i2c_setup.o.d 
 	@${RM} ${OBJECTDIR}/i2c_setup.o 
 	@${FIXDEPS} "${OBJECTDIR}/i2c_setup.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/i2c_setup.o.d" -o ${OBJECTDIR}/i2c_setup.o i2c_setup.c     
+	
+${OBJECTDIR}/init_PWM.o: init_PWM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/init_PWM.o.d 
+	@${RM} ${OBJECTDIR}/init_PWM.o 
+	@${FIXDEPS} "${OBJECTDIR}/init_PWM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/init_PWM.o.d" -o ${OBJECTDIR}/init_PWM.o init_PWM.c     
 	
 endif
 

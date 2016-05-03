@@ -1,5 +1,6 @@
 #include"PIC_setup.h"       //Setup stuff
 #include"i2c_setup.h"       //Setup the I2C comms
+#include"init_PWM.h"        //Setup PWM stuff
 #include <math.h>
 
 #define IMU_ADD 0b1101010 //Address of the IMU (LSB tied low)
@@ -28,6 +29,7 @@ int main() {
     LATAbits.LATA4 = 0; //Set A4 as LOW to begin with    
     __builtin_enable_interrupts();
     
+    init_PWM();
     
     //**********I2C COMMS SETUP**********************
     i2c_master_setup();     
@@ -46,6 +48,7 @@ int main() {
     }
     //***********************************************
         
+    
     _CP0_SET_COUNT(0);
     while(1) {
               
