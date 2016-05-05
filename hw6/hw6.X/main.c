@@ -35,8 +35,9 @@ int main() {
     i2c_master_setup();     
     unsigned char I2C_setup; 
     
-    char who_am_i =  i2c_read(IMU_ADD, WHO_AM_I);
-    if(who_am_i == 0b01101001) //WHO_AM_I is what it should be
+    unsigned char who_am_i[1];
+    i2c_read(IMU_ADD, WHO_AM_I, who_am_i, 1);
+    if(who_am_i[0] == 0b01101001) //WHO_AM_I is what it should be
     {
         //Turn On LED
         LATAbits.LATA4 = 1;

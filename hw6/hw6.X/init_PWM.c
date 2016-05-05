@@ -14,14 +14,14 @@ void init_PWM(void){
     T2CONbits.ON = 1;               //Turn on the timer
     //**********************************************
     
-	//Output compare at OC1
+	//OC1
 	OC1CONbits.OCM = 0b110;  	//PWM mode without fault pin; other OC1CON bits are defaults
 	OC1RS = 1500;             	//50% duty Cycle
 	OC1R = 1500;              	//50% duty Cycle
 	OC1CONbits.OCTSEL = 0;  	//Use timer 2
 	OC1CONbits.ON = 1;       	// turn on OC1
     
-    //Output compare at OC2
+    //OC2
 	OC2CONbits.OCM = 0b110;  	//PWM mode without fault pin; other OC1CON bits are defaults
 	OC2RS = 1500;             	//50% duty Cycle
 	OC2R = 1500;              	//50% duty Cycle
