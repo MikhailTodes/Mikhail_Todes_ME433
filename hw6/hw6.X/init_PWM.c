@@ -22,7 +22,7 @@ void init_PWM(void){
 	OC1CONbits.ON = 1;       	// turn on OC1
     
     //OC2
-	OC2CONbits.OCM = 0b110;  	//PWM mode without fault pin; other OC1CON bits are defaults
+	OC2CONbits.OCM = 0b110;  	//PWM mode without fault pin; other OC2CON bits are defaults
 	OC2RS = 1500;             	//50% duty Cycle
 	OC2R = 1500;              	//50% duty Cycle
     OC2CONbits.OCTSEL = 0;  	//Use timer 2

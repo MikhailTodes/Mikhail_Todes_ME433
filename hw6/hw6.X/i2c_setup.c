@@ -56,7 +56,7 @@ void i2c_master_stop(void) {          // send a STOP:
 }
 
 void i2c_write(unsigned char address, unsigned char reg, 
-        unsigned char * data){ 
+        unsigned char data ){ 
     
     i2c_master_start(); // make the start bit
 
@@ -64,11 +64,8 @@ void i2c_write(unsigned char address, unsigned char reg,
 
     i2c_master_send(reg); // the register to write to
     
-    int i;
-    for (i=0; i<strlen(data); i++){
-        i2c_master_send(data[i]); // deferenced data
-    }
-    
+    i2c_master_send(data);
+        
     i2c_master_stop(); // make the stop bit
 }
 
@@ -83,16 +80,22 @@ void i2c_read(unsigned char address, unsigned char reg, unsigned char * data, ch
     i2c_master_restart(); // make the restart bit
 
     i2c_master_send(address<<1|1); // write the address, shifted left by 1, or'ed with a 1 to indicate reading
-
-   //read once first then loop through the rest
-    data[0] = i2c_master_recv();  
+    
+    //read once first then loop through the rest
+    //data[0] = i2c_master_recv();  
     int i;
-    for (i = 1; i < len; i++){
-        i2c_master_ack(0);
-        data[i] = i2c_master_recv();
+    for (i = 0; i < len; i++){
+        data[i] = i2c_master_recv();  
+        if (i==len-1){
+            i2c_master_ack(1);
+        }
+        else {
+            i2c_master_ack(0);
+        }
     }
-
-    i2c_master_ack(1); // make the ack so the slave knows we got it
+    //LATAbits.LATA4 = 1;
+    
+    //i2c_master_ack(1); // make the ack so the slave knows we got it
 
     i2c_master_stop(); // make the stop bit
     }
