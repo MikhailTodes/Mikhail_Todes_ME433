@@ -4,7 +4,7 @@
 void init_PWM(void){
     //Open pins for OC1 and OC2
     RPA0Rbits.RPA0R = 0b0101; //Set A0 as OC1 (PIN 2)
-    RPA1Rbits.RPA1R = 0b0101; //Set A1 as OC2 (PIN 3)
+    RPB8Rbits.RPB8R = 0b0101; //Set B8 as OC2 (PIN 17)
     
     //***************TIMER 2************************
     T2CONbits.TCKPS = 4; //Prescaler N=16

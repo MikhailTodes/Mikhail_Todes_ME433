@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c init_PWM.c i2c_setup.c imu.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c init_PWM.c i2c_setup.c imu.c ILI9163C.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/init_PWM.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/imu.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/init_PWM.o.d ${OBJECTDIR}/i2c_setup.o.d ${OBJECTDIR}/imu.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/init_PWM.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/ILI9163C.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/init_PWM.o.d ${OBJECTDIR}/i2c_setup.o.d ${OBJECTDIR}/imu.o.d ${OBJECTDIR}/ILI9163C.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/init_PWM.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/imu.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/init_PWM.o ${OBJECTDIR}/i2c_setup.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/ILI9163C.o
 
 # Source Files
-SOURCEFILES=main.c init_PWM.c i2c_setup.c imu.c
+SOURCEFILES=main.c init_PWM.c i2c_setup.c imu.c ILI9163C.c
 
 
 CFLAGS=
@@ -118,6 +118,12 @@ ${OBJECTDIR}/imu.o: imu.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/imu.o 
 	@${FIXDEPS} "${OBJECTDIR}/imu.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/imu.o.d" -o ${OBJECTDIR}/imu.o imu.c     
 	
+${OBJECTDIR}/ILI9163C.o: ILI9163C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ILI9163C.o.d 
+	@${RM} ${OBJECTDIR}/ILI9163C.o 
+	@${FIXDEPS} "${OBJECTDIR}/ILI9163C.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ILI9163C.o.d" -o ${OBJECTDIR}/ILI9163C.o ILI9163C.c     
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -142,6 +148,12 @@ ${OBJECTDIR}/imu.o: imu.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/imu.o.d 
 	@${RM} ${OBJECTDIR}/imu.o 
 	@${FIXDEPS} "${OBJECTDIR}/imu.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/imu.o.d" -o ${OBJECTDIR}/imu.o imu.c     
+	
+${OBJECTDIR}/ILI9163C.o: ILI9163C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ILI9163C.o.d 
+	@${RM} ${OBJECTDIR}/ILI9163C.o 
+	@${FIXDEPS} "${OBJECTDIR}/ILI9163C.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ILI9163C.o.d" -o ${OBJECTDIR}/ILI9163C.o ILI9163C.c     
 	
 endif
 
