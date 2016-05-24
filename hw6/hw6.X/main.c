@@ -42,7 +42,7 @@ int main() {
     char buffer[100];
     
     sprintf(buffer,"IMU DATA");
-    LCD_Draw_String(40,10,&buffer,YELLOW,BLACK);
+    LCD_Draw_String(40,10, buffer,YELLOW,BLACK);
        
     _CP0_SET_COUNT(0);
     while(1) {
@@ -50,25 +50,25 @@ int main() {
         read_IMU(imu_data);
         
         sprintf(buffer,"Temperature --> %d ",(int)imu_data[0]*-1);
-        LCD_Draw_String(5,20,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,20,buffer,YELLOW,BLACK);
        
         sprintf(buffer,"Roll --> %d ",(int)imu_data[1]);
-        LCD_Draw_String(5,38,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,38,buffer,YELLOW,BLACK);
         sprintf(buffer,"Pitch --> %d ",(int)imu_data[2]);
-        LCD_Draw_String(5,47,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,47,buffer,YELLOW,BLACK);
         sprintf(buffer,"Yaw --> %d ",(int)imu_data[3]);
-        LCD_Draw_String(5,56,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,56,buffer,YELLOW,BLACK);
         
         sprintf(buffer,"X Accel --> %.2f ",((float)imu_data[4]*2.0/32768.0));
-        LCD_Draw_String(5,74,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,74,buffer,YELLOW,BLACK);
         sprintf(buffer,"Y Accel --> %.2f ",((float)imu_data[5]*2.0/32768.0));
-        LCD_Draw_String(5,83,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,83,buffer,YELLOW,BLACK);
         sprintf(buffer,"z Accel --> %.2f ",((float)imu_data[6]*2.0/32768.0));
-        LCD_Draw_String(5,92,&buffer,YELLOW,BLACK);
+        LCD_Draw_String(5,92,buffer,YELLOW,BLACK);
         
        
-        //OC1RS = (int)((((float)imu_data[4]*2 + 32767.0)/65535.0)*(3000));
-        //OC2RS = (int)((((float)imu_data[5]*2 + 32767.0)/65535.0)*(3000)); 
+        OC1RS = (int)(((((float)imu_data[4]*2.0/32768.0)+1)/2)*3000);
+        OC2RS = (int)(((((float)imu_data[5]*2.0/32768.0)+1)/2)*3000); 
         
     }       
 }
