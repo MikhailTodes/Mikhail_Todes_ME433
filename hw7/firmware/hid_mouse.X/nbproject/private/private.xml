@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/hid_mouse.X/nbproject/Makefile-impl.mk</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/hid_mouse.X/nbproject/Makefile-pic32mx_usb_sk2_int_dyn.mk</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/src/i2c_setup.c</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/src/imu.h</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/src/main.c</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/src/imu.c</file>
+            <file>file:/home/mito/microchip/harmony/v1_07_01/apps/usb/device/hw7/firmware/src/app.c</file>
+        </group>
+    </open-files>
+</project-private>
