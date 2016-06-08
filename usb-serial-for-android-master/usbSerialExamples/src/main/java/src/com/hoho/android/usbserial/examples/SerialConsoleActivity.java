@@ -31,12 +31,15 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ScrollView;
@@ -79,10 +82,10 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
     private Paint paint1 = new Paint();
     private TextView mTextView;
     SeekBar redControl;
-    int redVal = 160;
+    int redVal = 145;
     TextView redText;
     SeekBar blueControl;
-    int blueVal =242;
+    int blueVal =150;
     TextView blueText;
     SeekBar greenControl;
     int greenVal =150;
@@ -90,12 +93,14 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
 
     SeekBar heightControl;
     TextView heightText;
-    int startY = 122; // which row in the bitmap to analyse to read
+    int startY = 160; // which row in the bitmap to analyse to read
 
-    int COM;
+    int COM = 320;
 
     static long prevtime = 0; // for FPS calculation
     //****************************************************************
+
+    int music_on = 0;
 
     private final String TAG = SerialConsoleActivity.class.getSimpleName();
 
@@ -209,6 +214,21 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
         setHeightControlListener();
         //*****************************************************
         //******************************************************
+
+        final MediaPlayer bm = MediaPlayer.create(this, R.raw.bm);
+        Button play_music = (Button)this.findViewById(R.id.music_button);
+        play_music.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                if (music_on == 0) {
+                    bm.start();
+                    music_on = 1;
+                } else if (music_on == 1){
+                    bm.stop();
+                    music_on = 0;
+                }
+            }
+        });
 
     }
 
@@ -341,11 +361,17 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
 
             //watch out for divide by 0
             if (wbTotal<=0) {
-                COM = bmp.getWidth()/2;
+                //COM = 335;//TURN SLOWLY IF THE LINE IS LOST
             }
             else {
                 COM = wbCOM/wbTotal;
             }
+
+            String sendString = String.valueOf(COM) + "\n";
+            try {
+                sPort.write(sendString.getBytes(),10); // 10 is the timeout
+            }
+            catch (IOException e) {}
 
             // draw a circle where you think the COM is
             canvas.drawCircle(COM, startY, 5, paint1);
@@ -402,13 +428,13 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
                 sPort.open(connection);
                 sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
 
-                showStatus(mDumpTextView, "CD  - Carrier Detect", sPort.getCD());
-                showStatus(mDumpTextView, "CTS - Clear To Send", sPort.getCTS());
-                showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
-                showStatus(mDumpTextView, "DTR - Data Terminal Ready", sPort.getDTR());
-                showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
-                showStatus(mDumpTextView, "RI  - Ring Indicator", sPort.getRI());
-                showStatus(mDumpTextView, "RTS - Request To Send", sPort.getRTS());
+               // showStatus(mDumpTextView, "CD  - Carrier Detect", sPort.getCD());
+               // showStatus(mDumpTextView, "CTS - Clear To Send", sPort.getCTS());
+               // showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
+               // showStatus(mDumpTextView, "DTR - Data Terminal Ready", sPort.getDTR());
+               // showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
+               // showStatus(mDumpTextView, "RI  - Ring Indicator", sPort.getRI());
+               // showStatus(mDumpTextView, "RTS - Request To Send", sPort.getRTS());
 
                 //int i = 1002;
                 String sendString = String.valueOf(COM) + "\n";
@@ -432,6 +458,7 @@ public class SerialConsoleActivity extends Activity implements TextureView.Surfa
         }
         onDeviceStateChange();
     }
+
 
     private void stopIoManager() {
         if (mSerialIoManager != null) {
